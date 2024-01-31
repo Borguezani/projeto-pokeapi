@@ -4,13 +4,13 @@ import { createContext, useState } from "react";
 export const themes = {
     light: {
         color:'#000000',
-        backgroundGrid:'#FFA500',
-        backgroundMain:'#FFD700'
+        backgroundGrid:'#ccc',
+        backgroundImage:'../../assets/backgroundDay.jpg',
     },
     dark: {
-        color:'#ff6e40',
-        backgroundGrid:' #ccc',
-        backgroundMain:'#001f3f'
+        color:'#7D0000ff',
+        backgroundGrid:' #000',
+        backgroundImage:'../../assets/backgroundNight.jpg',
     }
 }
 export const ThemeContext = createContext({})

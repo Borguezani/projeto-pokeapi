@@ -1,0 +1,17 @@
+body {
+  height: 100px; /*Ajuste a altura como quiser aqui.*/
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+body::-webkit-scrollbar {
+  width: 14px;
+}
+
+body::-webkit-scrollbar-track {
+  background: #232055;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #79caf9;
+}
