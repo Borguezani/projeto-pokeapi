@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
-import styled, {keyframes} from "styled-components";
+import styled, { keyframes } from "styled-components";
 import axios from "axios";
-import { baseURL} from "../../services/variables";
+import { baseURL } from "../../services/variables";
 import { NavBar } from "../../components/NavBar";
 import { ThemeContext } from "../../contexts/theme-context";
 import { useNavigate } from "react-router-dom";
@@ -12,57 +12,55 @@ export const PokemonsList = ({ setPokemonData }) => {
   const [pokemons, setPokemons] = useState([]);
   const [allPokemons, setAllPokemons] = useState([]);
   const [offset, setOffset] = useState(10);
-  const [filteredPokemons, setFilteredPokemons] = useState()
+  const [filteredPokemons, setFilteredPokemons] = useState();
 
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get(`https://pokeapi.co/api/v2/pokemon?limit=3000&offset=0`).then((response) => {
-      const { results } = response.data;
-      let pokemonsUrl = results.map((pokemon) => pokemon.url);
+    axios
+      .get(`https://pokeapi.co/api/v2/pokemon?limit=3000&offset=0`)
+      .then((response) => {
+        const { results } = response.data;
+        let pokemonsUrl = results.map((pokemon) => pokemon.url);
 
-      Promise.all(
-        pokemonsUrl.map((url) =>
-          axios.get(url).then((response) => response.data)
-        )
-      ).then((pokemonDataArray) => {
-        const first10pokemons = pokemonDataArray.slice(0, offset);
+        Promise.all(
+          pokemonsUrl.map((url) =>
+            axios.get(url).then((response) => response.data)
+          )
+        ).then((pokemonDataArray) => {
+          const first10pokemons = pokemonDataArray.slice(0, offset);
 
-        setPokemons([...pokemons, ...first10pokemons]);
-        setAllPokemons([...pokemonDataArray]);
-        setFilteredPokemons([...pokemons, ...first10pokemons])
+          setPokemons([...pokemons, ...first10pokemons]);
+          setAllPokemons([...pokemonDataArray]);
+          setFilteredPokemons([...pokemons, ...first10pokemons]);
+        });
       });
-    });
-    console.log("usou o use efect")
-  },[]);
-   
+  }, []);
+
   const types = [];
   pokemons.map((pokemon) => {
-    types.push(pokemon.types[0].type.name)
+    types.push(pokemon.types[0].type.name);
   });
-  const colors = types.map(type => typeColors[type]);
-  
+  const colors = types.map((type) => typeColors[type]);
+
   const loadMorePokemons = (pokemons, allPokemons) => {
     const newOffset = offset + 10;
     setOffset(newOffset);
     const morePokemons = allPokemons.slice(pokemons.length, newOffset);
     pokemons.push(...morePokemons);
     setPokemons(pokemons);
-
   };
-  
-  
-    
-  
-  const pokemonFilter = (name) => {
-    var filteredPokemon = allPokemons.filter((pokemon) =>pokemon.name.includes(name))
 
-    if(name === ""){
-      setPokemons (filteredPokemons)   
-    }else 
-    {
-    setPokemons(filteredPokemon);}
-    
+  const pokemonFilter = (name) => {
+    var filteredPokemon = allPokemons.filter((pokemon) =>
+      pokemon.name.includes(name)
+    );
+
+    if (name === "") {
+      setPokemons(filteredPokemons);
+    } else {
+      setPokemons(filteredPokemon);
+    }
   };
 
   const pokemonPickHandler = (pokemon) => {
@@ -77,9 +75,8 @@ export const PokemonsList = ({ setPokemonData }) => {
           pokemonFilter={pokemonFilter}
           pokemons={pokemons}
           setPokemons={setPokemons}
-          ></NavBar>
-          <Grid>
-          
+        ></NavBar>
+        <Grid>
           {pokemons.length > 0 ? (
             pokemons.map((pokemon, key) => (
               <Card
@@ -96,10 +93,10 @@ export const PokemonsList = ({ setPokemonData }) => {
             ))
           ) : (
             <LoadingContainer>
-            <Loading></Loading>
+              <Loading></Loading>
             </LoadingContainer>
           )}
-          </Grid>
+        </Grid>
         <ButtonDiv>
           <Button
             color={theme.color}
@@ -111,24 +108,25 @@ export const PokemonsList = ({ setPokemonData }) => {
         </ButtonDiv>
       </Main>
     </>
-  );  
+  );
 };
 const animateLoading = keyframes`
-to{transform: rotate(360deg);}`
+to{transform: rotate(360deg);}`;
 const Loading = styled.p`
-width: 40px;
-height: 40px;
-border:10px solid;
-border-radius:50%;
-border-color: #ffe662;
-border-top-color: transparent;
-animation: ${animateLoading} 0.6s linear infinite;
-`
+  width: 40px;
+  height: 40px;
+  border: 10px solid;
+  border-radius: 50%;
+  border-color: #ffe662;
+  border-top-color: transparent;
+  animation: ${animateLoading} 0.6s linear infinite;
+`;
 const LoadingContainer = styled.div`
-align-items: center;
+  align-items: center;
 
-display:flex;
-justify-content:center;`
+  display: flex;
+  justify-content: center;
+`;
 const Main = styled.main`
   transition: background-image ease-in-out 1s;
   background-size: cover;
@@ -157,7 +155,7 @@ const Card = styled.div`
   border-radius: 10px;
 `;
 const ButtonDiv = styled.div`
-  position:relative;
+  position: relative;
   top: -50px;
   display: flex;
   width: 100%;

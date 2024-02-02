@@ -85,13 +85,8 @@ export const PokemonCard = ({ pokemonData }) => {
             <Abilities>
               {dataEffects.map((ability, index) => (
                 <Ability background={theme.backgroundMain} key={index}>
-                  <h4>
-                    {ability.name}
-                   
-                  </h4>
-                  <Description>
-                    {ability.description}
-                  </Description>
+                  <h4>{ability.name}</h4>
+                  <Description>{ability.description}</Description>
                 </Ability>
               ))}
             </Abilities>

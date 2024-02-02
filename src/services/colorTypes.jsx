@@ -17,5 +17,5 @@ export const typeColors = {
   rock: ["#c9BB8a"],
   steel: ["#9fb8b9"],
   water: ["#8cc4e2"],
-  dark: ["#88ab"]
+  dark: ["#88ab"],
 };
