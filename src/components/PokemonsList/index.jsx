@@ -17,7 +17,23 @@ export const PokemonsList = ({ setPokemonData }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    getPokemons(offset);
+    axios.get(`https://pokeapi.co/api/v2/pokemon?limit=3000&offset=0`).then((response) => {
+      const { results } = response.data;
+      let pokemonsUrl = results.map((pokemon) => pokemon.url);
+
+      Promise.all(
+        pokemonsUrl.map((url) =>
+          axios.get(url).then((response) => response.data)
+        )
+      ).then((pokemonDataArray) => {
+        const first10pokemons = pokemonDataArray.slice(0, offset);
+
+        setPokemons([...pokemons, ...first10pokemons]);
+        setAllPokemons([...pokemonDataArray]);
+        setFilteredPokemons([...pokemons, ...first10pokemons])
+      });
+    });
+    console.log("usou o use efect")
   },[]);
    
   const types = [];
@@ -35,24 +51,9 @@ export const PokemonsList = ({ setPokemonData }) => {
 
   };
   
-  const getPokemons = (offset) => {
-    axios.get(`https://pokeapi.co/api/v2/pokemon?limit=3000&offset=0`).then((response) => {
-      const { results } = response.data;
-      let pokemonsUrl = results.map((pokemon) => pokemon.url);
-
-      Promise.all(
-        pokemonsUrl.map((url) =>
-          axios.get(url).then((response) => response.data)
-        )
-      ).then((pokemonDataArray) => {
-        const first10pokemons = pokemonDataArray.slice(0, offset);
-
-        setPokemons([...pokemons, ...first10pokemons]);
-        setAllPokemons([...pokemonDataArray]);
-        setFilteredPokemons([...pokemons, ...first10pokemons])
-      });
-    });
-  };
+  
+    
+  
   const pokemonFilter = (name) => {
     var filteredPokemon = allPokemons.filter((pokemon) =>pokemon.name.includes(name))
 
@@ -66,7 +67,7 @@ export const PokemonsList = ({ setPokemonData }) => {
 
   const pokemonPickHandler = (pokemon) => {
     setPokemonData(pokemon);
-    navigate("/profile");
+    navigate(`/pokemon/${pokemon.name}`);
   };
 
   return (

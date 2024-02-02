@@ -10,7 +10,7 @@ export const AppRoutes = () =>{
         <BrowserRouter>
         <Routes>
         <Route exact path="/" element={<Home setPokemonData={setPokemonData}/>} />
-        <Route exact path="/profile/"  element={<PokemonProfile pokemonData={pokemonData}/>}/>
+        <Route exact path={`/pokemon/${pokemonData.name}`}  element={<PokemonProfile pokemonData={pokemonData}/>}/>
         </Routes>
         </BrowserRouter>
         
