@@ -9,7 +9,7 @@ export const ThemeTogglerButton = () => {
 
   const handleImageClick = () => {
     setTheme(theme === themes.light ? themes.dark : themes.light);
-    setPokebolaPosition(pokebolaPosition === "0" ? "calc(100%gi - 40px)" : "0");
+    setPokebolaPosition(pokebolaPosition === "0" ? "calc(100% - 40px)" : "0");
   };
   return (
     <Button
@@ -49,7 +49,6 @@ const Pokebola = styled.img`
   position: absolute;
   height: 40px;
   width: 40px;
-  top: 0.1;
   left: ${(props) => props.position};
   transition: left 0.5s;
 `;
