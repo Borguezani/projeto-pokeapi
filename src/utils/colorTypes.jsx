@@ -1,7 +1,7 @@
 export const typeColors = {
   grass: ["#a8ff98"],
   bug: ["#bae05f"],
-  dark: ["#8е8с94"],
+  dark: ["#8e8c94"],
   dragon: ["#88a2e8"],
   electric: ["#ffe662"],
   fairy: ["#fdb9e9"],
@@ -17,5 +17,5 @@ export const typeColors = {
   rock: ["#c9BB8a"],
   steel: ["#9fb8b9"],
   water: ["#8cc4e2"],
-  dark: ["#88ab"],
+  // dark: ["#88ab"],
 };

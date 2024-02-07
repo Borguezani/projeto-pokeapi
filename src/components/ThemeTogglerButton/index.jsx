@@ -1,15 +1,25 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { ThemeContext, themes } from "../../contexts/theme-context";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styled from "styled-components";
 import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
 export const ThemeTogglerButton = () => {
   const { theme, setTheme } = useContext(ThemeContext);
-  const [pokebolaPosition, setPokebolaPosition] = useState("0");
-
+  const [pokebolaPosition, setPokebolaPosition] = useState();
+  useEffect(() => {
+    const storedPokeball = sessionStorage.getItem("pokeball")
+    setPokebolaPosition(storedPokeball)
+  }, [theme]);
+  
   const handleImageClick = () => {
+    theme === themes.light
+    ? sessionStorage.setItem("pokeball", "calc(100% - 40px)")
+    : sessionStorage.setItem("pokeball", "0");
+    theme === themes.light
+      ? sessionStorage.setItem("themes", JSON.stringify(themes.dark))
+      : sessionStorage.setItem("themes", JSON.stringify(themes.light));
     setTheme(theme === themes.light ? themes.dark : themes.light);
-    setPokebolaPosition(pokebolaPosition === "0" ? "calc(100% - 40px)" : "0");
+   
   };
   return (
     <Button

@@ -1,10 +1,11 @@
+
 import { PokemonCard } from "../../components/PokemonDetailsCard"
 
-export const PokemonProfile =  ({pokemonData}) =>{
+export const PokemonProfile =  () =>{
+  
   
   return(
-    
-    <PokemonCard pokemonData={pokemonData}/>
+    <PokemonCard />
     
   )
 }
