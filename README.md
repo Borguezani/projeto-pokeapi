@@ -1,70 +1,48 @@
-# Getting Started with Create React App
+#Poke Api
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+Tabela de conteúdos
+=================
+   * [Sobre](#sobre)
+   * [Tecnologias](#tecnologias)
+   * [Desafios](#desafios)
+   * [Screenshot](#Utilização-do-Projeto)
+   * [Screenshot](#utilização-do-modal)
+   * [Paginação](#paginação)
 
-In the project directory, you can run:
+## Sobre
 
-### `npm start`
+Uma <strong>API de Pokédex</strong>, que através da <strong>Fetch API</strong> no JavaScript, cria <strong>requisições de informações</strong> para a <strong>pokeapi(https://pokeapi.co/)</strong>. <br><br> Essas informações são exibidas em uma estilização desenvolvida apartir do <strong>React Styled Components</strong>.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Tecnologias
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<div>
+    <img align='center' height='60' width='80' title='HTML5' alt='html5' src='https://github.com/devicons/devicon/blob/master/icons/html5/html5-original.svg' />
+    <img align='center' height='60' width='80' title='CSS3' alt='css3' src='https://github.com/devicons/devicon/blob/master/icons/css3/css3-original.svg' />
+    <img align='center' height='60' width='80' title='JavaScript' alt='javascript' src='https://github.com/devicons/devicon/blob/master/icons/javascript/javascript-original.svg' />
+  <img align='center' height='60' width='80' title='React' alt='react' src='https://github.com/devicons/devicon/blob/master/icons/react/react-original.svg' />
+</div>
 
-### `npm test`
+## Desafios
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Meu primeiro desafio foi desenvolver uma busca nos EndPoints da Api para saber qual caminho tomar.Eu utilizei Axios para fazer as requisições e Varios Consoles.log KKKK.
+Outros desafios que tive ao decorrer do projeto foram:
+- Como utilizar o React Router Dom para fazer as SPA funcionais e que quando eu atualizasse a página em certa rota essa mesma não desse erros.
+- Outro desafio foi fazer um sessionStorage para guardar algumas informações importantes.
+- Um dos ultimos desafios foi a refatoração do código e deixar ele mais flúido.
+## Utilização do Projeto
+![Tooltip](./public/assets/PokeGif.gif)
 
-### `npm run build`
+>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Paginação
+![Load-more](./public/assets/PokePaginas.gif)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+> `Paginação é um conceito ou melhor, uma técnica para dividir o conjunto de resultados em pequenos pedaços para o usuário navegar através dele com facilidade.` <br><br>
+> Como um dos desafios criei um botão que quando o usuário clique carregue mais 10 pokemons, isso evita eu ter que carregar mais de 1000 pokemons de uma só vez, o que causaria uma lentidão no carregamento da pagina. Como exemplos vou colocar uma screenshot do meu projeto na sua versão anterior e uma quando finalizado para comparar a quantidade de recursos utilizados em cada uma.
+Versão antiga:
+![Version02](./public/assets/ScreenshotVersion2.png)
+Versão nova:
+![Version04](./public/assets/ScreenshotVersion4.png)
+Fazendo isso consegui uma redução de 156MB para 3.9MB.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
