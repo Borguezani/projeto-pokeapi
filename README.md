@@ -1,4 +1,4 @@
-#Poke Api
+## Poke Api
 
 
 Tabela de conteúdos
@@ -7,12 +7,11 @@ Tabela de conteúdos
    * [Tecnologias](#tecnologias)
    * [Desafios](#desafios)
    * [Screenshot](#Utilização-do-Projeto)
-   * [Screenshot](#utilização-do-modal)
    * [Paginação](#paginação)
 
 ## Sobre
 
-Uma <strong>API de Pokédex</strong>, que através da <strong>Fetch API</strong> no JavaScript, cria <strong>requisições de informações</strong> para a <strong>pokeapi(https://pokeapi.co/)</strong>. <br><br> Essas informações são exibidas em uma estilização desenvolvida apartir do <strong>React Styled Components</strong>.
+Uma API de Pokédex, que através da Fetch API no JavaScript, cria requisições de informações para a <strong>pokeapi(https://pokeapi.co/)</strong>. <br><br> Essas informações são exibidas em uma estilização desenvolvida apartir do <strong>React Styled Components</strong>.
 
 ## Tecnologias
 
