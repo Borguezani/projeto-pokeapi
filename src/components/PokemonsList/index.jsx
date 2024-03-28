@@ -38,8 +38,8 @@ export const PokemonsList = () => {
     types.push(pokemon.types[0].type.name);
   });
   const colors = types.map((type) => typeColors[type]);
-  
-  const pokemonFilter = (name) => {
+
+   function pokemonFilter (name) {
     if (name === "") {
       setPokemons([...allPokemons]);
     } else {

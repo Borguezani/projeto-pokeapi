@@ -15,7 +15,7 @@ export const getPokemons = async (offset) =>{
 export const filterPokemon = async (name) =>{
     const response = await axios.get(`https://pokeapi.co/api/v2/pokemon?limit=3000&offset=0`)
     const { results } = response.data;
-    let pokemonsFiltered = await results.filter((pokemon) => pokemon.name.includes(name))
+    let pokemonsFiltered = await results.filter((pokemon) => pokemon.name.toLocaleLowerCase().includes(name.toLocaleLowerCase()))
     let pokemonsUrl = pokemonsFiltered ? await pokemonsFiltered.map((pokemon) => pokemon.url) : console.log("Pokemon não existe")
  
     return await Promise.all(
